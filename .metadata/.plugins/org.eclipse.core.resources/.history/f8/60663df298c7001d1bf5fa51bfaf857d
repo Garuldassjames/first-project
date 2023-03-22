@@ -1,0 +1,31 @@
+package practice_code;
+
+import java.util.HashSet;
+
+public class Setincollection {
+
+public static void main(String[] args) {
+	
+	
+int a[] = {1,2,3,4,5};
+
+HashSet<Integer> aa = new HashSet<Integer>();
+	aa.add(a);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
+	
+	
+	
+	
+	
+	
+	
+}

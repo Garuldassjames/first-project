@@ -1,0 +1,32 @@
+package com.api.baseclass;
+
+public class Endpoints {
+
+	
+	public static final  String BASE_URI =  "https://api.github.com";
+	public static final String SingleUser = null;
+	
+	public static class SingleUser{
+		
+		private SingleUser() {
+		}
+		
+	
+		public static  final String  GET_SINGLE_USER = BASE_URI +"/repos/{{Owner}}/{{Repo}}"; //variable owner boopath repo mmt
+		
+		public static final  String  CREATE_SINGLE_USER =BASE_URI +"/user/repos";
+		
+		public static final String PUT_SINGLE_USER =BASE_URI +"/repos/{{Owner}}/{{Repo}}/topics";
+		
+		public static  final String PATCH_SINGLE_USER =BASE_URI +"/repos/{{Owner}}/{{Repo}}";
+		
+		public static final String DELETE_SINGLE_USER =BASE_URI +"/repos/{{Owner}}/{{Repo}}";
+	
+		
+	}
+	
+	
+	
+	
+	
+}

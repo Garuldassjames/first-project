@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;screenshots&apos; to &apos;driver&apos;" description="Move &apos;screenshots&apos; to &apos;driver&apos;" destination="driver" element1="screenshots" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1677750156018" updateReferences="true"/>
+</session>

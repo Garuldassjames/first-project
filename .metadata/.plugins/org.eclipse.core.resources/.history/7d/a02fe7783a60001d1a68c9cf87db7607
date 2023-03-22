@@ -1,0 +1,21 @@
+package com.adj;
+
+public class Multipleinheritance {
+	public void fruitShop() {
+	System.out.println("fruits name");
+	}
+	public void fruitsName() {
+		System.out.println("Apple=120");
+		System.out.println("Orange=80");
+		System.out.println("Sapotta=50");
+		System.out.println("Guava=30");
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method
+		Multipleinheritance m= new Multipleinheritance();
+				m.fruitsName();
+				m.fruitShop();
+
+	}
+
+}

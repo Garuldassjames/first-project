@@ -1,0 +1,28 @@
+package com.adj;
+
+public class Firstclass {
+	public void stdId(){
+		System.out.println("student id=450");
+	}
+	public void stdName() {
+		System.out.println("Student name : james");
+	}
+	public void subjDetails() {
+		System.out.println("subject1=Tamil");
+		System.out.println("subject2=English");
+	}
+	public void marks() {
+		System.out.println("Tamil=100");
+		System.out.println("English=100");
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Firstclass f=new Firstclass();
+		f.stdId();
+		f.stdName();
+		f.subjDetails();
+		f.marks();
+		
+	}
+
+}

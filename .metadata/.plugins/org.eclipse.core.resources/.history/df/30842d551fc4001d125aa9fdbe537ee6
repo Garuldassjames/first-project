@@ -1,0 +1,55 @@
+package com.thepartycity;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class partybrowserlaunch {
+	public static WebDriver driver;
+	public static void chromelaunch() {
+
+		WebDriverManager.chromedriver().setup();
+		ChromeOptions opt = new ChromeOptions();
+		opt.addArguments("start-maximized");
+		opt.addArguments("--remote-allow-origins=*");
+		driver = new ChromeDriver(opt);
+		driver.get("https://www.partycity.com/");
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		driver.quit();
+	}
+	
+	public static void firefox() throws InterruptedException {
+Thread.sleep(2000);
+		WebDriverManager.firefoxdriver().setup();
+//		FirefoxOptions opt = new FirefoxOptions();
+		driver = new FirefoxDriver();
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Thread.sleep(8000);
+		driver.quit();
+		
+		
+		
+	}
+	
+	public static void main(String[] args) throws InterruptedException {
+		chromelaunch();
+		firefox();
+	}
+	
+
+}

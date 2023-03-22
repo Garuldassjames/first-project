@@ -1,0 +1,10 @@
+package com.adj;
+
+import java.util.Scanner;
+
+public class PersonalDetails1{
+	Scanner s= new Scanner (System.in) ;
+		// TODO Auto-generated constructor stub
+	}
+
+}

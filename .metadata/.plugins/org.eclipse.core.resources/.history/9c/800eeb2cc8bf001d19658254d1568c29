@@ -1,0 +1,84 @@
+package com.nykaa.nykaa_product_list;
+
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+import net.bytebuddy.asm.Advice.Argument;
+
+public class nykaa {
+
+	private static void nykaaproduct() throws InterruptedException {
+		WebDriverManager.chromedriver().setup();
+		ChromeOptions opt = new ChromeOptions();
+		opt.addArguments("start-maximized");
+		WebDriver driver = new ChromeDriver(opt);
+		driver.get("https://www.nykaa.com/");
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		Thread.sleep(3000);
+
+		WebElement signin = driver.findElement(By.xpath("//button[text()='Sign in with Mobile / Email']"));
+		signin.click();
+
+		Thread.sleep(3000);
+		WebElement mobno = driver.findElement(By.xpath("//input[@name='emailMobile']"));
+		mobno.sendKeys("9566220866");
+
+		WebElement proceed = driver.findElement(By.xpath("//button[@id='submitVerification']"));
+		proceed.click();
+
+		Thread.sleep(3000);
+		Scanner s = new Scanner(System.in);
+		String a = s.next();
+		System.out.println(a);
+		Thread.sleep(20000);
+		WebElement otp = driver.findElement(By.xpath("//input[@name='otpValue']"));
+		otp.sendKeys(a);
+
+		WebElement verify = driver.findElement(By.xpath("//button[@class='button big fill full ']"));
+		verify.click();
+
+		Thread.sleep(3000);
+		WebElement newtonykaa = driver.findElement(By.xpath("//div[text()='New at Nykaa']"));
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", newtonykaa);
+
+		Thread.sleep(2000);
+		WebElement product = driver.findElement(By
+				.xpath("(//div[text()='New at Nykaa']/following::div/descendant::div/div[@class='product-name'])[1]"));
+		product.click();
+
+		WebElement proceed1 = driver.findElement(By.xpath("//span[text()='Add to Bag']"));
+		proceed1.click();
+		Thread.sleep(3000);
+		
+		WebElement baggy = driver.findElement(By.xpath("//span[@class='cart-count']"));
+		baggy.click();
+		
+		Thread.sleep(3000);
+		WebElement frames = driver.findElement(By.xpath("//iframe[@class='css-acpm4k']"));
+		driver.switchTo().frame(frames);
+
+		WebElement proceed2 = driver.findElement(By.xpath("//*[@id='app']/div/div/div[3]/div/div/div/div[2]/button"));
+		proceed2.click();
+		
+		WebElement address = driver.findElement(By.xpath("//p[text()='Add New Address']"));
+		address.click();
+		address.sendKeys("no.6289,TNHB,LIG-2,ayapakkam,chennai-77");
+	}
+
+	public static void main(String[] args) throws InterruptedException {
+		System.out.println(args);
+		nykaaproduct();
+	}
+
+}

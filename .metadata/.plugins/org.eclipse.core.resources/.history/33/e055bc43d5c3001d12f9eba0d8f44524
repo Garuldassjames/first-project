@@ -1,0 +1,62 @@
+package flipk;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class flipk {
+	public static   WebDriver driver = null;
+	public static void browserlaunch() {
+
+	    WebDriverManager.chromedriver().setup();	
+        ChromeOptions opt = new ChromeOptions();
+        opt.addArguments("--remote-allow-origins=*");
+	    opt.addArguments("start-maximized");
+	    driver = new ChromeDriver(opt);
+	    driver.get("https://www.flipkart.com/");
+	}
+	
+	public static void productsearch() throws InterruptedException {
+
+		WebElement serachbar = driver.findElement(By.xpath("//input[@placeholder='Search for products, brands and more']"));
+		serachbar.sendKeys("samsung a12");
+	
+//		searchkey.click();
+//		Actions act = new Actions(driver);
+//		act.click(searchkey).build().perform();
+		
+		Thread.sleep(2000);
+		WebElement crossbutt = driver.findElement(By.xpath("//button[text()='✕']"));
+//		crossbutt.click();	
+		Actions act = new Actions(driver);
+		act.click(crossbutt).build().perform();
+		Thread.sleep(2000);
+		WebElement searchkey = driver.findElement(By.xpath("//button[@type='submit']"));
+		searchkey.click();
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+public static void main(String[] args) throws InterruptedException {
+	flipk fil = new flipk();
+	browserlaunch();
+	productsearch();
+}
+}

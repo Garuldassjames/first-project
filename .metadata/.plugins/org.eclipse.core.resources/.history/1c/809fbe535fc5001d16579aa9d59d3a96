@@ -1,0 +1,42 @@
+package com.api.baseclass;
+
+import java.util.Map;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+
+public class HTTPsMethods {
+
+	public static Response doGetCall (Map<String,String>headers,String endpoints) {
+		Response response = RestAssured.given().headers(headers).when().get(endpoints).then().log().all().extract().response();
+			
+		return response;
+
+	}
+	public static Response doputCall (Map<String,String>headers,String endpoints) {
+		Response response = RestAssured.given().headers(headers).when().put(endpoints).then().log().all().extract().response();
+			
+		return response;
+
+	}
+	public static Response dopostCall (Map<String,String>headers,String endpoints) {
+		Response response = RestAssured.given().headers(headers).when().post(endpoints).then().log().all().extract().response();
+			
+		return response;
+
+	}
+	public static Response dodeleteCall (Map<String,String>headers,String endpoints) {
+		Response response = RestAssured.given().headers(headers).when().delete(endpoints).then().log().all().extract().response();
+			
+		return response;
+
+	}
+	public static Response doCall (Map<String,String>headers,String endpoints) {
+		Response response = RestAssured.given().headers(headers).when().patch(endpoints).then().log().all().extract().response();
+			
+		return response;
+
+	}
+	
+	
+}

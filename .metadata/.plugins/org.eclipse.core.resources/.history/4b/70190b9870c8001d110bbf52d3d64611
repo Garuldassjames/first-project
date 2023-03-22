@@ -1,0 +1,58 @@
+package testNG.testNG;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class crossbrowser {
+	
+	static WebDriver driver;
+	
+	FirefoxOptions firexfoxopions =  new FirefoxOptions();
+	ChromeOptions ChromeOptions = new ChromeOptions();
+	EdgeOptions EdgeOptions = new EdgeOptions();
+	
+	
+	@Parameters("browser")
+     @BeforeTest
+	public static void initialize(String browser) {
+		
+
+		if (browser.equalsIgnoreCase("firefox")) {
+		System.out.println("launch the firefox driver");
+		WebDriverManager.firefoxdriver().setup();
+		driver =new FirefoxDriver();
+		}
+		else if(browser.equalsIgnoreCase("chrome")) {
+		System.out.println("launch the chrome driver");
+		WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver();
+		}
+		else if(browser.equalsIgnoreCase("edge")){
+		System.out.println("launch the edgedriver");
+		WebDriverManager.edgedriver().setup();
+		driver = new EdgeDriver();
+		}
+	}
+	@Test
+	public static void partycity() {
+
+		driver.get("https://www.partycity.com/");
+		
+		driver.quit();
+	}
+	
+	
+	
+	
+}
+

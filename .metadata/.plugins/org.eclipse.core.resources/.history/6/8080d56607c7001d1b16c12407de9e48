@@ -1,0 +1,21 @@
+package testNG.testNG;
+
+import org.openqa.selenium.WebDriver;
+
+public class crossbrowser {
+	
+	static WebDriver driver;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

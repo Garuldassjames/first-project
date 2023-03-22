@@ -1,0 +1,9 @@
+package com.adj;
+
+public class Loopsconcept {
+
+	public Loopsconcept() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

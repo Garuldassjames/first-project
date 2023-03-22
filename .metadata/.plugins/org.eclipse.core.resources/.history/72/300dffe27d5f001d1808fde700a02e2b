@@ -1,0 +1,22 @@
+package com.adj;
+
+public class Logindetails {
+	public void username(){
+		System.out.println("username: G arul dass james");
+	}
+	public void mobNO(){
+		System.out.println("mobile no:9566220866");
+	}
+	public void emailId(){
+		System.out.println("email Id: aruldassjames@gmail.com");
+	}
+	public void enterOtp() {
+		System.o
+	}
+	public static void main(String[] args) {
+	}
+		// TODO Auto-generated method stub
+
+	}
+
+}

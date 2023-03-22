@@ -1,0 +1,26 @@
+package com.adj;
+
+public class Constructor {
+
+	public Constructor() {
+		this (1234);
+		System.out.println("My personal data:");
+	}
+	public Constructor(int a) {
+		this ("G.arul dass james");
+		System.out.println("My roll no:"+" "+a);
+	}
+	public Constructor(String b) {
+		this("april",1999);
+		System.out.println( "My name is "+" "+b);
+	}
+	public Constructor(String c, int d) {
+			System.out.println("my date of birthis 25th of"+""+c+" "+d);
+	}
+	public static void main(String[] args) {
+		Constructor C=new Constructor();
+	
+		// TODO Auto-generated constructor stub
+	}
+
+}

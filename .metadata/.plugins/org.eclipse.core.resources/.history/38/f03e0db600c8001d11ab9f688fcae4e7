@@ -1,0 +1,55 @@
+package com.nykaa.nykaa_product_list;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class facebookdatadriven {
+	
+//	public static WebDriver driver;
+	
+	public static void browserl() {
+		
+		   WebDriverManager.chromedriver().setup();
+	        ChromeOptions opt = new ChromeOptions();
+//		    opt.addArguments("start-maximized");
+		    WebDriver driver = new ChromeDriver(opt);
+			driver.get("https://www.nykaa.com/");
+			driver.manage().window().maximize();
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+	
+		
+//	public static void main(String[] args) {
+//		
+//		int a = 100;
+//		int b;
+//		int c;
+//		 b=++a;
+//		 c=b++;
+//		 
+//		 System.out.println(a);
+//		 System.out.println(b);
+//		 System.out.println(c);
+//
+//	
+	}
+		
+//	}
+	public static void main(String[] args) {
+		facebookdatadriven fb = new facebookdatadriven();
+		browserl();
+		
+	}
+	
+	
+}
+	
+	
+	
+	
+

@@ -1,0 +1,116 @@
+package maven_pack.maven01;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.Select;
+
+import io.cucumber.core.filter.Options;
+import io.cucumber.core.gherkin.Argument;
+
+public class amazon_my_own {
+	public static WebDriver driver;
+
+	public static void amazon() throws InterruptedException {
+		ChromeOptions opt = new ChromeOptions();
+		opt.addArguments("start-maximized");
+		System.getProperty(("user.dir") + "gettile3\\driver\\chromedriver.exe");
+		driver = new ChromeDriver(opt);
+		driver.get("https://www.amazon.in/");
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		WebElement dropdownbox = driver.findElement(By.xpath("//select[@id='searchDropdownBox']"));
+		dropdownbox.click();
+
+		Select s = new Select(dropdownbox);
+		List<WebElement> allprod = s.getOptions();
+		String expect = "Music";
+		for (WebElement webE : allprod) {
+			if (expect.equals(webE.getText())) {
+				System.out.println(webE.getText());
+				s.selectByVisibleText(webE.getText());
+				break;
+
+			}
+		}
+
+		WebElement searchbox = driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']"));
+		String searchkey = "cd";
+		searchbox.sendKeys(searchkey);
+		List<WebElement> prodli = driver.findElements(By.xpath("//div[@class='s-suggestion-container']"));
+		for (WebElement prob : prodli) {
+			if (prob.getText().equalsIgnoreCase(searchkey)) {
+				prob.click();
+				break;
+			}
+		}
+
+		Thread.sleep(3000);
+		
+//		driver.findElement(By.xpath("//span[text()='RESULTS']//ancestor::div[@class='s-main-slot s-result-list s-search-results sg-row']//div[@data-component-id='2']")).click();
+
+//		WebElement firstprod = driver.findElement(By
+//				.xpath("//span[text()='RESULTS']/parent::div/following::div[@data-cel-widget='search_result_2']//h2"));
+//			JavascriptExecutor js = (JavascriptExecutor)driver;
+//			js.executeScript("argument[0].scrollIntoView(true);", firstprod);
+
+//		System.out.println(firstprod.getText());
+//			String str = "Buy Vedamantra Parichaya (Set of 2 CDs) Online at Low Prices in India | Amazon Music Store - Amazon.in";
+//			Set<String> win = driver.getWindowHandles();
+//			for (String webElement : win) {
+//				System.out.println(win);
+//				String title = driver.switchTo().window(webElement).getTitle();
+//		        System.out.println(title);	
+//			}
+
+//		driver.findElement(By.xpath("//span[text()='RESULTS']//ancestor::div[@class='s-main-slot s-result-list s-search-results sg-row']//img[@data-image-index='1']")).click();
+		
+	String MainWindow = driver.getWindowHandle();
+		 driver.findElement(By.xpath("//span[text()='RESULTS']/following::div/following-sibling::div/following::div//div[@data-cel-widget='MAIN-SEARCH_RESULTS-3']//h2/a")).click();
+	
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 Thread.sleep(3000);
+		 
+		 
+		 Set<String> Allwindow = driver.getWindowHandles();
+		 
+		 
+		 
+		 for (String curentWindow : Allwindow) {
+			 
+			 if (!curentWindow.equalsIgnoreCase(MainWindow)) {
+				 
+				 
+				 driver.switchTo().window(curentWindow);
+				 
+				
+			}
+			 
+			 
+			
+		}
+		 
+		 
+		driver.findElement(By.xpath("//span[text()='Add to Cart']")).click();
+	
+	}
+
+	public static void main(String[] args) throws InterruptedException {
+
+		amazon();
+	}
+}

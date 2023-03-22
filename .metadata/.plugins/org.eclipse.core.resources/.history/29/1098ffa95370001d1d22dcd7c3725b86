@@ -1,0 +1,35 @@
+package com.adj;
+
+import java.util.Scanner;
+
+public class Jh_switchcasses {
+	public static void main(String[] args) {
+		Scanner s= new Scanner(System.in);
+		int i=s.nextInt();
+		int k=s.nextInt();
+		}
+	public void switch1() {
+		String different_section = "string";
+		switch (different_section) {
+		case"nestedforloop":
+			
+		for(int i=0;i<=8;i++) {
+		}
+			for(int j=1;j<8;j++) {
+			
+			System.out.print(j);
+		continue;
+			}
+		
+	
+		case"whileloop":
+			int k=0;
+			while(k<10) {
+			System.out.println();
+			k++;
+			continue;
+			}
+		
+		}
+	}
+}

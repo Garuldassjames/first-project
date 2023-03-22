@@ -1,0 +1,48 @@
+package flipk;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class flipk {
+	public static   WebDriver driver = null;
+	public static void browserlaunch() {
+
+	    WebDriverManager.chromedriver().setup();	
+        ChromeOptions opt = new ChromeOptions();
+        opt.addArguments("--remote-allow-origins=*");
+	    opt.addArguments("start-maximized");
+	    driver = new ChromeDriver(opt);
+	    driver.get("https://www.flipkart.com/");
+	}
+	
+	public static void productsearch() {
+
+		WebElement serachbar = driver.findElement(By.xpath("//input[@placeholder='Search for products, brands and more']"));
+		serachbar.click();
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+public static void main(String[] args) {
+	flipk fil = new flipk();
+     firstproduct();
+}
+}
